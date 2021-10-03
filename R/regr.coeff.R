@@ -20,7 +20,7 @@ regr.coeff <- function(icvdf) {
   vols <- icvdf%>%
     dplyr::group_by(label_id) %>%
     dplyr::select(pid, p.class, time_points, rnum,
-           label_id, icv_mm3, meanicv, vol_mm3)%>%
+           label_id, icv_mm3, vol_mm3)%>%
     dplyr::do(broom::tidy(lm(vol_mm3 ~ icv_mm3, data = .)))%>%
     dplyr::select(label_id, term, estimate)%>%
     tidyr::pivot_wider(.,names_from = term, values_from = estimate)%>%
