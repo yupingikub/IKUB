@@ -1,8 +1,8 @@
 #' @title Volume differences comparison
 #' @description Calculates normalized volumes of all label ids for all
 #' individuals. Compares the normalized volumes and volumes that have not been
-#' normalized for individuals.
-volumes that have not been normalized for individuals.
+#' normalized for individuals. volumes that have not been normalized for
+#' individuals.
 #' @details Input four data frames which the first data frame contains
 #' coefficients of regression lines, the second contains ICV of all individuals,
 #' the third contains all label_id volumes of all individuals and the fourth
@@ -26,6 +26,7 @@ volumes that have not been normalized for individuals.
 #' @return A data frame including normalized volumes and none normalized volumes
 #' for all individuals.
 #' @export
+#'
 vol.diff <- function(regrdf, icvdf) {
   df <- icvdf%>%
     dplyr::full_join(regrdf, by='label_id')%>%
